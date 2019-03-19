@@ -1,4 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <!-- version of this Sdk is not specified in any of the parent folders -->
+  <Sdk Name="Microsoft.Build.CentralPackageVersions"/>
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
