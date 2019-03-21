@@ -14,14 +14,20 @@
     <_RemoveGlobalProps Include="Platform"/>
   </ItemGroup>
 
-  <Target Name="BuildOutOfTreeSolution" AfterTargets="Build">
+  <Target Name="BuildOutOfTreeSolution">
     <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTree\OutOfTree.sln" 
              Targets="Restore;Build"
              RemoveProperties="@(_RemoveGlobalProps)" />
   </Target>
 
+  <Target Name="BuildOutOfTreeCppSolution">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTreeCpp\OutOfTreeCpp.sln" 
+             Targets="Restore;Build"
+             RemoveProperties="@(_RemoveGlobalProps)" />
+  </Target>
+
   <Target Name="CleanOutOfTreeSolution" AfterTargets="Clean">
-    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTree\OutOfTree.sln" 
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTree\OutOfTree.sln;$(MSBuildProjectDirectory)\..\..\OutOfTreeCpp\OutOfTreeCpp.sln" 
     Targets="Clean"
     RemoveProperties="@(_RemoveGlobalProps)"/>
   </Target>

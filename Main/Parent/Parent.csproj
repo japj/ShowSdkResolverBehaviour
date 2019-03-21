@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <!-- the version of this Sdk is specified in global.json -->
-  <Sdk Name="Microsoft.Build.CentralPackageVersions"/>
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <Import Project="$(MSBuildProjectDirectory)\..\..\BuildOtherSolution.targets" />
+
+  <Target Name="BuildOutOfTreeSln" AfterTargets="Build" DependsOnTargets="BuildOutOfTreeSolution"/>
 </Project>

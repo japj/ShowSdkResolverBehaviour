@@ -167,4 +167,5 @@
   </ImportGroup>
 
   <Import Project="$(MSBuildProjectDirectory)\..\..\BuildOtherSolution.targets" />
+  <Target Name="BuildOutOfTreeCppSln" AfterTargets="Build" DependsOnTargets="BuildOutOfTreeCppSolution"/>
 </Project>
