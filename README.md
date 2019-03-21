@@ -9,7 +9,7 @@ This example shows the different behaviour of the MSBuild SdkResolver from Visua
   - Result: fails with errors:
     ```
     Severity	Code	Description	Project	File	Line	Suppression State
-    Error	MSB4236	The SDK 'Microsoft.Build.CentralPackageVersions' specified could not be found.	CppParent	D:\GitHub\ShowSdkResolverBehaviour\OutOfTree\MyOtherLib\MyOtherLib.csproj	1	
+    Error	MSB4236	The SDK 'Microsoft.Build.CentralPackageVersions' specified could not be found.	CppParent	D:\GitHub\ShowSdkResolverBehaviour\OutOfTreeCpp\MyOtherLib\MyOtherLib.csproj	1	
     Error		C:\Program Files\dotnet\sdk\2.2.104\Sdks\Microsoft.Build.CentralPackageVersions\Sdk not found. Check that a recent enough .NET Core SDK is installed and/or increase the version specified in global.json.	CppParent		1	
     ```
 - Build `MSBuild Main\Main.sln` from Developer Command Prompt
