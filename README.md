@@ -2,7 +2,7 @@
 This example shows the different behaviour of the MSBuild SdkResolver from VisualStudio.
 
 ## Steps to reproduce
-- Open Main\Main.sln in Visual Studio
+- Open Main\Main.sln in Visual Studio 2017 15.9.9 (with C++ and dotnet workloads installed)
 - Build the Parent project (csproj) from Visual Studio
   - Result: succesfull build
 - Build the CppParent project (vcxproj) from Visual Studio
