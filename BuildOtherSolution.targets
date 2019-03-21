@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- ensure OutOfTree sln can actually build and don't pass global properties from this sln downstream -->
+  <ItemGroup>
+    <_RemoveGlobalProps Include="BuildingSolutionFile"/>
+    <_RemoveGlobalProps Include="CurrentSolutionConfigurationContents"/>
+    <_RemoveGlobalProps Include="SolutionDir"/>
+    <_RemoveGlobalProps Include="SolutionExt"/>
+    <_RemoveGlobalProps Include="SolutionFileName"/>
+    <_RemoveGlobalProps Include="SolutionName"/>
+    <_RemoveGlobalProps Include="SolutionPath"/>
+    <_RemoveGlobalProps Include="BuildingSolutionFile"/>
+    <_RemoveGlobalProps Include="Configuration"/>
+    <_RemoveGlobalProps Include="Platform"/>
+  </ItemGroup>
+
+  <Target Name="BuildOutOfTreeSolution" AfterTargets="Build">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTree\OutOfTree.sln" 
+             Targets="Restore;Build"
+             RemoveProperties="@(_RemoveGlobalProps)" />
+  </Target>
+
+  <Target Name="CleanOutOfTreeSolution" AfterTargets="Clean">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTree\OutOfTree.sln" 
+    Targets="Clean"
+    RemoveProperties="@(_RemoveGlobalProps)"/>
+  </Target>
+</Project>
