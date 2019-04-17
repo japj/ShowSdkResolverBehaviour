@@ -3,8 +3,6 @@ This example shows the different behaviour of the MSBuild SdkResolver from Visua
 
 ## Steps to reproduce
 - Open Main\Main.sln in Visual Studio 2017 15.9.9 (with C++ and dotnet workloads installed)
-- Build the Parent project (csproj) from Visual Studio
-  - Result: succesfull build
 - Build the CppParent project (vcxproj) from Visual Studio
   - Result: fails with errors:
     ```
@@ -12,6 +10,8 @@ This example shows the different behaviour of the MSBuild SdkResolver from Visua
     Error	MSB4236	The SDK 'Microsoft.Build.CentralPackageVersions' specified could not be found.	CppParent	D:\GitHub\ShowSdkResolverBehaviour\OutOfTreeCpp\MyOtherLib\MyOtherLib.csproj	1	
     Error		C:\Program Files\dotnet\sdk\2.2.104\Sdks\Microsoft.Build.CentralPackageVersions\Sdk not found. Check that a recent enough .NET Core SDK is installed and/or increase the version specified in global.json.	CppParent		1	
     ```
+- Build the Parent project (csproj) from Visual Studio
+  - Result: succesfull build
 - Build `MSBuild Main\Main.sln /t:restore;build` from Developer Command Prompt
   - Result: succesfull build
 
