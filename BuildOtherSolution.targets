@@ -31,4 +31,14 @@
     Targets="Clean"
     RemoveProperties="@(_RemoveGlobalProps)"/>
   </Target>
+  
+  <!-- this can be used to manually run (PackageReference) restore on the outoftree solution -->
+  <Target Name="RestoreOutOfTreeSolutions">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTree\OutOfTree.sln" 
+             Targets="Restore"
+             RemoveProperties="@(_RemoveGlobalProps)" />
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\OutOfTreeCpp\OutOfTreeCpp.sln" 
+             Targets="Restore"
+             RemoveProperties="@(_RemoveGlobalProps)" />             
+  </Target>
 </Project>
